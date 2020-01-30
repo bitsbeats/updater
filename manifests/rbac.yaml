@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: updater
+  namespace: my-application
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: updater
+  namespace: my-application
+rules:
+  - apiGroups: ["extensions", "apps"]
+    resources: ["deployments"]
+    verbs: ["patch"]
+---
+apiVersion:  rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: updater
+  namespace: my-application
+subjects:
+  - kind: ServiceAccount
+    name: updater
+    namespace: my-application
+roleRef:
+  kind: Role
+  name: updater
+  apiGroup: rbac.authorization.k8s.io
