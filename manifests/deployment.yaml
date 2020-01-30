@@ -15,10 +15,10 @@ spec:
       labels:
         app: updater
     spec:
+      serviceAccountName: updater
       containers:
         - name: updater
           image: bitsbeats/updater:0.1.0
-          serviceAccount: updater
           workingDir: /
           securityContext:
             capabilities:
