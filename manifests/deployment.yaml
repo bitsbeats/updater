@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: updater
-          image: bitsbeats/updater:v0.1.0
+          image: bitsbeats/updater:0.1.0
           serviceAccount: updater
           workingDir: /
           securityContext:
