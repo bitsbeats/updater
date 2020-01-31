@@ -127,12 +127,13 @@ func (a *App) Patch(annotationValue string) (updating bool, err error) {
 
 // WriteHeader wraps ResponseWriters WriteHeader
 func (w *AppResponseWriter) WriteHeader(statusCode int) {
-	w.StatusCode = statusCode
 	w.ResponseWriter.WriteHeader(statusCode)
+	w.StatusCode = statusCode
 }
 
 // Abort defines the http errorcode an the message for the logger
 func (w *AppResponseWriter) Abort(statusCode int, message string) {
+	w.WriteHeader(statusCode)
 	w.StatusCode = statusCode
 	w.LogMessage = message
 }
