@@ -66,7 +66,7 @@ func (a *App) Handle(w http.ResponseWriter, r *http.Request) {
 	updating, err := a.Patch(t)
 	if err != nil {
 		msg := fmt.Sprintf("unable to update deployment: %s", err)
-		w.(*AppResponseWriter).Abort(http.StatusForbidden, msg)
+		w.(*AppResponseWriter).Abort(http.StatusInternalServerError, msg)
 		return
 	}
 	if updating {
