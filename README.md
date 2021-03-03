@@ -10,7 +10,7 @@ In `manifests/` is an example deployment. Fix the namespace and modify the secre
 
 Configration is done via environment variables.
 
-- `SECRET`: Secret that must be included in the web request
+- `TOKEN`: Token that must be included in the web request
 - `DEPLOYMENT`: Name of the deployment that will be rolled out
 
 ## webhook
